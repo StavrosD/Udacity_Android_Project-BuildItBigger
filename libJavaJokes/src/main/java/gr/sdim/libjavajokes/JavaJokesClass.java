@@ -44,9 +44,8 @@ public class JavaJokesClass {
         } else {
             return credits;
         }
-
-
     }
+
     private String JokesJson = "{\n" +
                 "  \"credits\":\"Jokes found at https://www.pingdom.com/blog/10-computer-geek-jokes-and-truisms/\",\n" +
                 "  \"jokes\": [\n" +

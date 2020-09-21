@@ -4,15 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import static com.udacity.gradle.builditbigger.BuildConfig.IS_PAID;
+import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
 
 
 /**
@@ -20,30 +15,32 @@ import static com.udacity.gradle.builditbigger.BuildConfig.IS_PAID;
  */
 public class MainActivityFragment extends Fragment {
     public static final String TAG = "JOKES_FRAGMENT";
-    private ProgressBar mProgressBar;
-    private Button mButton;
 
+    private  FragmentMainBinding mFragmentMainBinding;
     public MainActivityFragment() {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
-        mProgressBar = root.findViewById(R.id.progressBar);
-        mButton = root.findViewById(R.id.button);
-        return root;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mFragmentMainBinding = FragmentMainBinding.inflate(inflater,container,false);
+        View view = mFragmentMainBinding.getRoot();
+        return view;
     }
 
     public void showProgressBar(boolean show){
         if (show == true) {
-            mButton.setEnabled(false);  // prevent multiple requests if the user try to click the button again before getting the results from the first click
-            mProgressBar.setVisibility(View.VISIBLE);
+            mFragmentMainBinding.button.setEnabled(false);  // prevent multiple requests if the user try to click the button again before getting the results from the first click
+            mFragmentMainBinding.progressBar.setVisibility(View.VISIBLE);
         } else {
-            mProgressBar.setVisibility(View.GONE);
-            mButton.setEnabled(true);
+            mFragmentMainBinding.progressBar.setVisibility(View.GONE);
+            mFragmentMainBinding.button.setEnabled(true);
         }
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mFragmentMainBinding = null;
+    }
 }

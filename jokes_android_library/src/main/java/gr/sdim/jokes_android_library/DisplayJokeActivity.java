@@ -1,9 +1,12 @@
 package gr.sdim.jokes_android_library;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import gr.sdim.jokes_android_library.databinding.ActivityDisplayJokeBinding;
 
 public class DisplayJokeActivity extends AppCompatActivity {
     public static String JOKE_ACTIVITY_KEY = "Joke activity key";
@@ -12,10 +15,13 @@ public class DisplayJokeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_joke);
+
 
         mJoke = getIntent().getStringExtra(JOKE_ACTIVITY_KEY);
-        mJokeTextView = findViewById(R.id.jokeTextView);
+        ActivityDisplayJokeBinding binding = ActivityDisplayJokeBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        mJokeTextView = binding.jokeTextView;
         if (mJoke != null && !mJoke.isEmpty()) {
             mJokeTextView.setText(mJoke);
         } else {

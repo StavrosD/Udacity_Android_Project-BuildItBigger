@@ -1,18 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import gr.sdim.jokes_android_library.DisplayJokeActivity;
 
 
 public class MainActivity extends MainActivityCommon {
@@ -31,11 +23,10 @@ public class MainActivity extends MainActivityCommon {
         }
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke(android.view.View view) {
         mMainActivityFragment.showProgressBar(true);
-        super.tellJoke(null);
+        super.tellJoke(view);
     }
-
 
     public void handleDataQueryTaskResponse(String result) {
         mMainActivityFragment.showProgressBar(false);

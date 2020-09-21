@@ -1,7 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -49,11 +48,11 @@ public class MainActivity extends MainActivityCommon {
 
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke(android.view.View view) {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            super.tellJoke(null);
+            super.tellJoke(view);
         }
     }
 

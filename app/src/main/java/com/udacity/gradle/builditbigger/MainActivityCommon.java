@@ -9,17 +9,27 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+
+import com.udacity.gradle.builditbigger.databinding.ActivityMainBinding;
 
 import gr.sdim.jokes_android_library.DisplayJokeActivity;
 
 
 public class MainActivityCommon extends AppCompatActivity {
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding = null;
     }
 
     @Override
@@ -44,11 +54,11 @@ public class MainActivityCommon extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke(android.view.View view) {
         //JavaJokesClass jjc = new JavaJokesClass();
         //String newJoke = jjc.getRandomJoke();
         //launchJokeActivity(this,newJoke);
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, ""));;
+        new EndpointAsyncTask().execute(new Pair<Context, String>(this, ""));;
 
     }
 
@@ -60,6 +70,7 @@ public class MainActivityCommon extends AppCompatActivity {
     }
 
     public void handleDataQueryTaskResponse(String result) {
+
         launchJokeActivity(this,result);
     }
 }
