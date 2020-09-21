@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "4853290630",
+    "firebase_url": "https://builditbigger-udacity-pr-1a13b.firebaseio.com",
+    "project_id": "builditbigger-udacity-pr-1a13b",
+    "storage_bucket": "builditbigger-udacity-pr-1a13b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4853290630:android:a374d8fa16a29a0bc2e307",
+        "android_client_info": {
+          "package_name": "com.udacity.gradle.builditbigger.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQHI30DLETjLhgi4VF9VjyNJBEYfCYd-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-9041018364059057~5092608684"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4853290630:android:3e3cf344289382a5c2e307",
+        "android_client_info": {
+          "package_name": "com.udacity.gradle.builditbigger.paid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQHI30DLETjLhgi4VF9VjyNJBEYfCYd-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4853290630:android:83781ad97e5b02d9c2e307",
+        "android_client_info": {
+          "package_name": "gr.sdim.builditbigger.udacity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQHI30DLETjLhgi4VF9VjyNJBEYfCYd-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4853290630-5kinbp0jd2k2p2pf26gi2bkenivioaud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
