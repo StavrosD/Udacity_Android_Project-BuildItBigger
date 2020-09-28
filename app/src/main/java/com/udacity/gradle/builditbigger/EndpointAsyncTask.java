@@ -14,12 +14,16 @@ import java.io.IOException;
 
 class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
 
+    private OnTaskCompleted listener;
+    private Exception mException;
+    public EndpointAsyncTask(OnTaskCompleted listener){
+        this.listener = listener;
+    }
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        if(myApiService == null) {  // Only do this once
+            if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -35,20 +39,34 @@ class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
             // end options for devappserver
 
             myApiService = builder.build();
+
         }
 
-        context = params[0].first;
 
         try {
             return myApiService.tellMeAJoke().execute().getJoke();
         } catch (IOException e) {
-            return e.getMessage();
+            e.printStackTrace();
+            mException = e;
+            return null;
+        }
+    }
+
+    @Override
+    protected void onCancelled() {
+        if (listener != null){
+            mException = new InterruptedException("AsyncTask cancelled");
+            this.listener.onTaskCompleted(  null, mException);
         }
     }
 
     @Override
     protected void onPostExecute(String result) {
-        MainActivityCommon mainActivity = (MainActivityCommon)context;
-        mainActivity.handleDataQueryTaskResponse(result);
+        if (listener != null) {
+            listener.onTaskCompleted(result,mException);
+        }
+
     }
+
+
 }

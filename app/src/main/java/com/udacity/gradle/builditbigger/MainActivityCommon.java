@@ -14,9 +14,9 @@ import com.udacity.gradle.builditbigger.databinding.ActivityMainBinding;
 
 import gr.sdim.jokes_android_library.DisplayJokeActivity;
 
-
-public class MainActivityCommon extends AppCompatActivity {
+public class MainActivityCommon extends AppCompatActivity implements OnTaskCompleted {
     ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class MainActivityCommon extends AppCompatActivity {
         //JavaJokesClass jjc = new JavaJokesClass();
         //String newJoke = jjc.getRandomJoke();
         //launchJokeActivity(this,newJoke);
-        new EndpointAsyncTask().execute(new Pair<Context, String>(this, ""));;
+        new EndpointAsyncTask(this).execute(new Pair<Context, String>(this, ""));
 
     }
 
@@ -69,8 +69,14 @@ public class MainActivityCommon extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void handleDataQueryTaskResponse(String result) {
 
-        launchJokeActivity(this,result);
+    @Override
+    public void onTaskCompleted(String result, Exception e) {
+        if (result != null) {
+            launchJokeActivity(this, result);
+        } else {
+            launchJokeActivity(this, "!ERROR!\n" + e.getLocalizedMessage());
+        }
+
     }
 }

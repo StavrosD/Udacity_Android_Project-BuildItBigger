@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.google.cloud.tools:endpoints-framework-gradle-plugin:1.0.2'
+        classpath 'com.google.cloud.tools:endpoints-framework-gradle-plugin:1.0.3'
 
     }
 }
@@ -60,31 +60,38 @@ android {
     useLibrary 'android.test.runner'
 
     useLibrary 'android.test.base'
-    useLibrary 'android.test.mock'
+   // useLibrary 'android.test.mock'
     sourceSets {
         free {
             res {
                 srcDirs 'src/free/res', 'src/free/res/'
             }
         }
+        paid {
+            res {
+                srcDirs 'src/paid/res', 'src/paid/res/'
+            }
+        }
     }
-
+    defaultConfig {
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.firebase:firebase-ads:19.4.0'
-    implementation project(path: ':libJavaJokes')
     implementation project(path: ':jokes_android_library')
     endpointsServer project(path: ':backend', configuration: 'endpoints')
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.gms:play-services-ads:19.4.0'
     implementation 'com.google.api-client:google-api-client:1.30.10'
     implementation 'com.google.http-client:google-http-client-android:1.36.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+    freeImplementation 'com.google.android.gms:play-services-ads:19.4.0'
+    freeImplementation 'com.google.firebase:firebase-analytics:17.5.0'
+    freeImplementation 'com.google.firebase:firebase-ads:19.4.0'
+
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
-
-    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'junit:junit:4.13'
 }

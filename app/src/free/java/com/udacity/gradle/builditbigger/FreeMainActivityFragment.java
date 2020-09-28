@@ -24,7 +24,7 @@ public class FreeMainActivityFragment extends MainActivityFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        FragmentMainBinding  fragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false);
+        FragmentMainBinding   fragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false);
         // initialize ads view
         //AdView mAdView = binding.adView;
         // Create an ad request. Check logcat output for the hashed device ID to
@@ -33,6 +33,7 @@ public class FreeMainActivityFragment extends MainActivityFragment{
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
+
         fragmentMainBinding.adView.loadAd(adRequest);
 
         MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {

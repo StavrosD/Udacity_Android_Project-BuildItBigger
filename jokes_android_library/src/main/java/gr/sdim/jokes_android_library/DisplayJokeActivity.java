@@ -16,7 +16,6 @@ public class DisplayJokeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         mJoke = getIntent().getStringExtra(JOKE_ACTIVITY_KEY);
         ActivityDisplayJokeBinding binding = ActivityDisplayJokeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -25,14 +24,8 @@ public class DisplayJokeActivity extends AppCompatActivity {
         if (mJoke != null && !mJoke.isEmpty()) {
             mJokeTextView.setText(mJoke);
         } else {
-            mJokeTextView.setText("No joke received so I will tell you one! \n On a phone call: \n Technician: Click on \"My Computer\"\nClient: How can I click your computer from my computer?");
+            mJokeTextView.setText("There was an unknown error!\nMaby the backend is not started yet.\n\n No joke received so I will tell you one!\n \nOn a phone call: \nTechnician: Click on \"My Computer\"\nClient: How can I click your computer from my computer?");
         }
-
-
-
-
-
     }
-
     //Toast.makeText(this, , Toast.LENGTH_SHORT).show();
 }

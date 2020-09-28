@@ -10,9 +10,6 @@ import androidx.fragment.app.Fragment;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
 
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class MainActivityFragment extends Fragment {
     public static final String TAG = "JOKES_FRAGMENT";
 
@@ -31,6 +28,7 @@ public class MainActivityFragment extends Fragment {
         if (show == true) {
             mFragmentMainBinding.button.setEnabled(false);  // prevent multiple requests if the user try to click the button again before getting the results from the first click
             mFragmentMainBinding.progressBar.setVisibility(View.VISIBLE);
+
         } else {
             mFragmentMainBinding.progressBar.setVisibility(View.GONE);
             mFragmentMainBinding.button.setEnabled(true);

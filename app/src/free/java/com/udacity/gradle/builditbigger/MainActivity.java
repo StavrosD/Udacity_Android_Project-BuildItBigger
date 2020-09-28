@@ -49,6 +49,7 @@ public class MainActivity extends MainActivityCommon {
     }
 
     public void tellJoke(android.view.View view) {
+        mMainActivityFragment.showProgressBar(true);
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
@@ -56,8 +57,10 @@ public class MainActivity extends MainActivityCommon {
         }
     }
 
-    public void handleDataQueryTaskResponse(String result) {
+    @Override
+    public void onTaskCompleted(String result, Exception e) {
         mMainActivityFragment.showProgressBar(false);
-        super.handleDataQueryTaskResponse(result);
+        super.onTaskCompleted(result,e );
     }
+
 }

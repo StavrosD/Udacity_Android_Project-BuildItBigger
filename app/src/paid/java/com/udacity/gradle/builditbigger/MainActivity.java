@@ -28,8 +28,9 @@ public class MainActivity extends MainActivityCommon {
         super.tellJoke(view);
     }
 
-    public void handleDataQueryTaskResponse(String result) {
+    @Override
+    public void onTaskCompleted(String result, Exception e) {
         mMainActivityFragment.showProgressBar(false);
-        super.handleDataQueryTaskResponse(result);
+        super.onTaskCompleted(result, e);
     }
 }
